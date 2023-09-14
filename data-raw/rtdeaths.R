@@ -20,7 +20,10 @@ datasus_doext <- fetch_datasus(
 city_list <- read_ods("data-raw/ibge_lista_municipios.ods", skip = 6)
 
 datasus_doext <- as.data.table(datasus_doext)
-city_list <- as.data.table(city_list)
+
+city_list <- city_list %>% 
+  janitor::clean_names() %>% 
+  as.data.table()
 
 ## deaths arrangement
 
@@ -101,10 +104,28 @@ datasus_road <- datasus_doext[, cod_modal := str_sub(CAUSABAS, 1, 2)] %>%
     faixa_etaria_vitima, sexo_vitima, escolaridade_vitima, raca_vitima,
     ocup_cbo_vitima, cod_municipio_ocor, nome_regiao_ocor, cod_municipio_res,
     nome_regiao_res
-  )
+  )]
 
-city_list %>% 
-  janitor::clean_names() %>% 
-  .[, cod_municipio := str_sub(as.character(codigo_municipio_completo), 1, 6)]
+city_list <- city_list[
+  , 
+  cod_municipio := str_sub(as.character(codigo_municipio_completo), 1, 6)
+] %>% 
+  .[, .(cod_municipio, nome_uf, nome_municipio)]
+
+## Join datasets
+
+rtdeaths <- datasus_road %>%
+  .[city_list, on = c("cod_municipio_ocor" = "cod_municipio")] %>%
+  setnames(
+    ., 
+    c("nome_municipio", "nome_uf"), 
+    c("nome_municipio_ocor", "nome_uf_ocor")
+  ) %>% 
+  .[city_list, on = c("cod_municipio_res" = "cod_municipio")] %>%
+  setnames(
+    ., 
+    c("nome_municipio", "nome_uf"), 
+    c("nome_municipio_res", "nome_uf_res")
+  )
 
 usethis::use_data(rtdeaths, overwrite = TRUE)
