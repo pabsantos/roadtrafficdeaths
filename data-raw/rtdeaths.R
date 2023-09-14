@@ -22,7 +22,10 @@ city_list <- read_ods("data-raw/ibge_lista_municipios.ods", skip = 6)
 
 datasus_doext <- datasus_doext |>
   as_tibble() |>
-  mutate(cod_modal = str_sub(CAUSABAS, 1, 2)) |>
+  mutate(
+    cod_modal = str_sub(CAUSABAS, 1, 2), 
+    cod_cid = as.character(CAUSABAS)
+  ) |>
   filter(cod_modal %in% paste0("V", seq(0, 8, 1))) |>
   mutate(
     modal_vitima = case_match(
@@ -98,11 +101,32 @@ datasus_doext <- datasus_doext |>
     ocup_cbo_vitima = as.character(OCUP)
   ) |>
   select(
-    modal_vitima, data_ocorrencia, ano_ocorrencia, idade_vitima,
+    cod_cid, modal_vitima, data_ocorrencia, ano_ocorrencia, idade_vitima,
     faixa_etaria_vitima, sexo_vitima, escolaridade_vitima, raca_vitima,
     ocup_cbo_vitima, cod_municipio_ocor, nome_regiao_ocor, cod_municipio_res,
     nome_regiao_res
   )
+
+
+# clean city_list names
+
+city_table <- city_list %>% 
+  janitor::clean_names() %>% 
+  select(
+    uf, 
+    nome_uf, 
+    cod_municipio = codigo_municipio_completo, nome_municipio
+  ) %>% 
+  mutate(cod_municipio = str_sub(as.character(cod_municipio), 1, 6))
+
+## Joining deaths and city datasets
+
+rtdeaths <- datasus_doext %>% 
+  left_join(city_table, by = c("cod_municipio_ocor" = "cod_municipio")) %>% 
+  rename(nome_uf_ocor = nome_uf, nome_municipio_ocor = nome_municipio) %>%
+  left_join(city_table, by = c("cod_municipio_res" = "cod_municipio")) %>% 
+  rename(nome_uf_res = nome_uf, nome_municipio_res = nome_municipio) %>% 
+  select(-uf.y, -uf.x)
 
 
 usethis::use_data(rtdeaths, overwrite = TRUE)
