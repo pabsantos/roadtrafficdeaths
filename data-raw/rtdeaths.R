@@ -100,7 +100,7 @@ datasus_road <- datasus_doext[, cod_modal := str_sub(CAUSABAS, 1, 2)] %>%
   )] %>% 
   .[, ocup_cbo_vitima := as.character(OCUP)] %>% 
   .[, .(
-    modal_vitima, data_ocorrencia, ano_ocorrencia, idade_vitima,
+    cod_modal, modal_vitima, data_ocorrencia, ano_ocorrencia, idade_vitima,
     faixa_etaria_vitima, sexo_vitima, escolaridade_vitima, raca_vitima,
     ocup_cbo_vitima, cod_municipio_ocor, nome_regiao_ocor, cod_municipio_res,
     nome_regiao_res
