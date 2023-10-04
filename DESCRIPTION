@@ -2,13 +2,22 @@ Package: roadtrafficdeaths
 Title: Road Traffic Deaths Data from Brazil
 Version: 0.0.0.9000
 Authors@R: 
-    person(
+    c(person(
         given = c("Pedro", "Augusto", "Borges"), 
         family = "Santos",
         email = "pabsantos21@gmail.com",
         role = c("aut", "cre"),
-        comment = c(ORCID = "0000-0003-0550-4251"))
-Description: What the package does (one paragraph).
+        comment = c(ORCID = "0000-0003-0550-4251")),
+      person(
+        given = c("João", "Pedro", "Melani"),
+        family = "Saraiva",
+        email = "jpsaraiva2002@gmail.com",
+        role = "aut"
+      ))
+Description: This package contains one dataset of death certificates from road
+  traffic crashes that happened in Brazil. This data is provided by the
+  Brazilian Ministry of Health, and includes all certificated between 1996
+  and 2021.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -16,3 +25,6 @@ RoxygenNote: 7.2.3
 Depends: 
     R (>= 2.10)
 LazyData: true
+Date: 2023-10-04
+BugReports: https://github.com/pabsantos/roadtrafficdeaths/issues
+LazyDataCompression: bzip2
