@@ -1,28 +1,30 @@
 #' Brazilian road traffic deaths data
-#' 
-#' Death certificates from road traffic crashes. Data from the Brazilian 
-#' Ministry of Health, between 1996 and 2021.
-#' 
+#'
+#' Death certificates from road traffic crashes. Data from the Brazilian
+#' Ministry of Health, between 1996 and 2021. All variables are encoded in
+#' Brazilian Portuguese.
+#'
 #' @format ## `rtdeaths` dataset
-#' A `data.table` with 923,440 rows and 17 columns:
+#' A `data.table` with 923,440 rows and 18 columns:
 #' \describe{
-#'   \item{cod_modal}{}
-#'   \item{modal_vitima}{}
-#'   \item{data_ocorrencia}{}
-#'   \item{ano_ocorrencia}{}
-#'   \item{idade_vitima}{}
-#'   \item{faixa_etaria_vitima}{}
-#'   \item{sexo_vitima}{}
-#'   \item{escolaridade_vitima}{}
-#'   \item{raca_vitima}{}
-#'   \item{ocup_cbo_vitima}{}
-#'   \item{cod_municipio_ocor}{}
-#'   \item{nome_regiao_ocor}{}
-#'   \item{cod_municipio_res}{}
-#'   \item{nome_regiao_res}{}
-#'   \item{nome_uf_ocor}{}
-#'   \item{nome_municipio_ocor}{}
-#'   \item{nome_uf_res}{}
-#'   \item{nome_municipio_res}{}
+#'   \item{\code{cod_modal}}{ICD-10 code of the death certificate}
+#'   \item{\code{modal_vitima}}{Mode of transport of the victim during the road crash}
+#'   \item{\code{data_ocorrencia}}{Date of death in ISO 8601 format}
+#'   \item{\code{ano_ocorrencia}}{Year of death}
+#'   \item{\code{idade_vitima}}{Age in years of the victim}
+#'   \item{\code{faixa_etaria_vitima}}{Age range of the victim}
+#'   \item{\code{sexo_vitima}}{Sex of the victim}
+#'   \item{\code{escolaridade_vitima}}{Education of the victim}
+#'   \item{\code{raca_vitima}}{Race of the victim}
+#'   \item{\code{ocup_cbo_vitima}}{Ocupation of the victim, based on the CBO code}
+#'   \item{\code{cod_municipio_ocor}}{City of death occurrence, based on IBGE code}
+#'   \item{\code{nome_regiao_ocor}}{Brazilian region where the death occurred}
+#'   \item{\code{cod_municipio_res}}{City of residence of the victim, based on IBGE code}
+#'   \item{\code{nome_regiao_res}}{Brazilian region where the victim had an residence address}
+#'   \item{\code{nome_uf_ocor}}{Name of the state where the death occurred}
+#'   \item{\code{nome_municipio_ocor}}{Name of the city where the death occurred}
+#'   \item{\code{nome_uf_res}}{Name of the state where the victim had an residence address}
+#'   \item{\code{nome_municipio_res}}{Name of the city where the victim had an residence address}
 #' }
 #' @source <ftp://ftp.datasus.gov.br/dissemin/publicos/SIM/CID10/DOFET>
+"rtdeaths"

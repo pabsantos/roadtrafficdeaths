@@ -21,14 +21,14 @@ city_list <- read_ods("data-raw/ibge_lista_municipios.ods", skip = 6)
 
 datasus_doext <- as.data.table(datasus_doext)
 
-city_list <- city_list %>% 
-  janitor::clean_names() %>% 
+city_list <- city_list %>%
+  janitor::clean_names() %>%
   as.data.table()
 
 ## deaths arrangement
 
-datasus_road <- datasus_doext[, cod_modal := str_sub(CAUSABAS, 1, 2)] %>% 
-  .[cod_modal %in% paste0("V", seq(0, 8, 1))] %>% 
+datasus_road <- datasus_doext[, cod_modal := str_sub(CAUSABAS, 1, 2)] %>%
+  .[cod_modal %in% paste0("V", seq(0, 8, 1))] %>%
   .[, modal_vitima := case_match(
     cod_modal,
     "V0" ~ "Pedestre",
@@ -39,10 +39,15 @@ datasus_road <- datasus_doext[, cod_modal := str_sub(CAUSABAS, 1, 2)] %>%
     "V6" ~ "Caminhão",
     "V7" ~ "Ônibus",
     "V8" ~ "Outros"
-    )] %>% 
-  .[, data_ocorrencia := dmy(DTOBITO)] %>% 
-  .[, ano_ocorrencia := year(data_ocorrencia)] %>% 
-  .[, idade_vitima := as.numeric(str_sub(IDADE, 2, 3))] %>% 
+    )] %>%
+  .[, data_ocorrencia := dmy(DTOBITO)] %>%
+  .[, ano_ocorrencia := year(data_ocorrencia)] %>%
+  .[, idade_vitima := case_when(
+    str_sub(IDADE, 1, 1) == "4" ~ as.numeric(str_sub(IDADE, 2, 3)),
+    str_sub(IDADE, 1, 1) %in% c("0", "1", "2", "3") ~ 0,
+    str_sub(IDADE, 1, 1) == "5" ~ as.numeric(paste0("1", str_sub(IDADE, 2, 3))),
+    TRUE ~ NA
+  )] %>%
   .[, faixa_etaria_vitima := cut(
     idade_vitima,
     breaks = c(
@@ -58,12 +63,12 @@ datasus_road <- datasus_doext[, cod_modal := str_sub(CAUSABAS, 1, 2)] %>%
     ),
     include.lowest = TRUE,
     right = FALSE
-  )] %>% 
+  )] %>%
   .[, sexo_vitima := case_match(
     SEXO,
     "1" ~ "Masculino",
     "2" ~ "Feminino"
-  )] %>% 
+  )] %>%
   .[, raca_vitima := case_match(
     RACACOR,
     "1" ~ "Branca",
@@ -71,7 +76,7 @@ datasus_road <- datasus_doext[, cod_modal := str_sub(CAUSABAS, 1, 2)] %>%
     "3" ~ "Amarela",
     "4" ~ "Parda",
     "5" ~ "Indígena"
-  )] %>% 
+  )] %>%
   .[, escolaridade_vitima := case_match(
     ESC,
     "1" ~ "Nenhuma",
@@ -79,8 +84,8 @@ datasus_road <- datasus_doext[, cod_modal := str_sub(CAUSABAS, 1, 2)] %>%
     "3" ~ "de 4 a 7 anos",
     "4" ~ "de 8 a 11 anos",
     "5" ~ "12 anos ou mais"
-  )] %>% 
-  .[, cod_municipio_ocor := str_sub(as.character(CODMUNOCOR), 1, 6)] %>% 
+  )] %>%
+  .[, cod_municipio_ocor := str_sub(as.character(CODMUNOCOR), 1, 6)] %>%
   .[, nome_regiao_ocor := case_match(
     str_sub(cod_municipio_ocor, 1, 1),
     "1" ~ "Norte",
@@ -88,8 +93,8 @@ datasus_road <- datasus_doext[, cod_modal := str_sub(CAUSABAS, 1, 2)] %>%
     "3" ~ "Sudeste",
     "4" ~ "Sul",
     "5" ~ "Centro-Oeste"
-  )] %>% 
-  .[, cod_municipio_res := str_sub(as.character(CODMUNRES), 1, 6)] %>% 
+  )] %>%
+  .[, cod_municipio_res := str_sub(as.character(CODMUNRES), 1, 6)] %>%
   .[, nome_regiao_res := case_match(
     str_sub(cod_municipio_res, 1, 1),
     "1" ~ "Norte",
@@ -97,8 +102,8 @@ datasus_road <- datasus_doext[, cod_modal := str_sub(CAUSABAS, 1, 2)] %>%
     "3" ~ "Sudeste",
     "4" ~ "Sul",
     "5" ~ "Centro-Oeste"
-  )] %>% 
-  .[, ocup_cbo_vitima := as.character(OCUP)] %>% 
+  )] %>%
+  .[, ocup_cbo_vitima := as.character(OCUP)] %>%
   .[, .(
     cod_modal, modal_vitima, data_ocorrencia, ano_ocorrencia, idade_vitima,
     faixa_etaria_vitima, sexo_vitima, escolaridade_vitima, raca_vitima,
@@ -107,9 +112,9 @@ datasus_road <- datasus_doext[, cod_modal := str_sub(CAUSABAS, 1, 2)] %>%
   )]
 
 city_list <- city_list[
-  , 
+  ,
   cod_municipio := str_sub(as.character(codigo_municipio_completo), 1, 6)
-] %>% 
+] %>%
   .[, .(cod_municipio, nome_uf, nome_municipio)]
 
 ## Join datasets
@@ -117,14 +122,14 @@ city_list <- city_list[
 rtdeaths <- datasus_road %>%
   .[city_list, on = c("cod_municipio_ocor" = "cod_municipio")] %>%
   setnames(
-    ., 
-    c("nome_municipio", "nome_uf"), 
+    .,
+    c("nome_municipio", "nome_uf"),
     c("nome_municipio_ocor", "nome_uf_ocor")
-  ) %>% 
+  ) %>%
   .[city_list, on = c("cod_municipio_res" = "cod_municipio")] %>%
   setnames(
-    ., 
-    c("nome_municipio", "nome_uf"), 
+    .,
+    c("nome_municipio", "nome_uf"),
     c("nome_municipio_res", "nome_uf_res")
   )
 
