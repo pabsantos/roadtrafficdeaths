@@ -7,7 +7,7 @@
 #' @format ## `rtdeaths` dataset
 #' A `data.table` with 923,440 rows and 18 columns:
 #' \describe{
-#'   \item{\code{cod_modal}}{ICD-10 code of the death certificate}
+#'   \item{\code{cod_modal}}{ICD-10 code of main cause of death}
 #'   \item{\code{modal_vitima}}{Mode of transport of the victim during the road crash}
 #'   \item{\code{data_ocorrencia}}{Date of death in ISO 8601 format}
 #'   \item{\code{ano_ocorrencia}}{Year of death}
