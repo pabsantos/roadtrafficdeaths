@@ -1,0 +1,45 @@
+---
+title: "roadtrafficdeaths"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{roadtrafficdeaths}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The `roadtrafficdeaths` package contains one dataset of death certificates from road traffic crashes that happened in Brazil. This data is provided by the Brazilian Ministry of Health, and includes all certificated between 1996 and 2021.
+
+## Installation
+
+The current version of `roadtrafficdeaths` can be installed from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("pabsantos/roadtrafficdeaths")
+```
+Next, the libraries that will be used in this vignette are loaded. This package loads an `data.table` object called `rtdeaths`, so it is recommended to install and load the [`data.table`](https://cran.r-project.org/web/packages/data.table/index.html) package as well.
+
+```{r setup}
+library(roadtrafficdeaths)
+library(data.table)
+```
+
+## Usage exemple
+
+In this example, we will use the `rtdeaths` dataset to extract the annual quantity of road traffic deaths in Brazil, between 1996 and 2021.
+
+```{r example}
+year_deaths <- rtdeaths[, .N, by = ano_ocorrencia]
+setorder(year_deaths, cols = ano_ocorrencia)
+year_deaths
+```
+
+
+

@@ -29,3 +29,8 @@ Date: 2023-10-04
 BugReports: https://github.com/pabsantos/roadtrafficdeaths/issues
 LazyDataCompression: bzip2
 URL: https://pabsantos.github.io/roadtrafficdeaths/, https://github.com/pabsantos/roadtrafficdeaths
+Suggests: 
+    knitr,
+    rmarkdown,
+    data.table
+VignetteBuilder: knitr
