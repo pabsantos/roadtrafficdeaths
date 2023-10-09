@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# roadtrafficdeaths
+# roadtrafficdeaths <a href="https://pabsantos.github.io/roadtrafficdeaths/"><img src="man/figures/logo.png" align="right" height="139" alt="roadtrafficdeaths website" /></a>
 
 <!-- badges: start -->
 
@@ -76,7 +76,9 @@ citation("roadtrafficdeaths")
 #> To cite package 'roadtrafficdeaths' in publications use:
 #> 
 #>   Santos PAB, Saraiva JPM (2023). _roadtrafficdeaths: Road Traffic
-#>   Deaths Data from Brazil_. R package version 0.1.0.
+#>   Deaths Data from Brazil_.
+#>   https://pabsantos.github.io/roadtrafficdeaths/,
+#>   https://github.com/pabsantos/roadtrafficdeaths.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -84,6 +86,6 @@ citation("roadtrafficdeaths")
 #>     title = {roadtrafficdeaths: Road Traffic Deaths Data from Brazil},
 #>     author = {Pedro Augusto Borges Santos and João Pedro Melani Saraiva},
 #>     year = {2023},
-#>     note = {R package version 0.1.0},
+#>     note = {https://pabsantos.github.io/roadtrafficdeaths/, https://github.com/pabsantos/roadtrafficdeaths},
 #>   }
 ```
