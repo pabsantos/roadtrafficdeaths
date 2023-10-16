@@ -13,7 +13,8 @@ Authors@R:
         family = "Saraiva",
         email = "jpsaraiva2002@gmail.com",
         role = "aut"
-      ))
+      ),
+      person("ONSV - National Road Safety Observatory", role = c("cph", "fnd")))
 Description: This package contains one dataset of death certificates from road
   traffic crashes that happened in Brazil. This data is provided by the
   Brazilian Ministry of Health, and includes all certificated between 1996
