@@ -33,7 +33,7 @@ library(data.table)
 
 ## Usage example
 
-In this example, we will use the `rtdeaths` dataset to extract the annual quantity of road traffic deaths in Brazil, between 1996 and 2021.
+In this example, we will use the `rtdeaths` dataset to extract the annual quantity of road traffic deaths in Brazil, between 1996 and 2022.
 
 ```{r example, fig.width=6, fig.height=4}
 
