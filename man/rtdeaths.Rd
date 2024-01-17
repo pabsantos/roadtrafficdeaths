@@ -7,7 +7,7 @@
 \format{
 \subsection{\code{rtdeaths} dataset}{
 
-A \code{data.table} with 936,969 rows and 18 columns:
+A \code{data.table} with 970,863 rows and 18 columns:
 \describe{
 \item{\code{cod_modal}}{ICD-10 code of main cause of death}
 \item{\code{modal_vitima}}{Mode of transport of the victim during the road crash}

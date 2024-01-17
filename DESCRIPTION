@@ -18,7 +18,7 @@ Authors@R:
 Description: This package contains one dataset of death certificates from road
   traffic crashes that happened in Brazil. This data is provided by the
   Brazilian Ministry of Health, and includes all certificated between 1996
-  and 2021.
+  and 2022.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

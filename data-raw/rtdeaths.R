@@ -9,11 +9,11 @@ library(data.table)
 
 datasus_doext <- fetch_datasus(
   year_start = 1996,
-  year_end = 2021,
+  year_end = 2022,
   information_system = "SIM-DOEXT",
   vars = c(
-      "CAUSABAS", "CODMUNOCOR", "DTOBITO", "IDADE", "SEXO", "RACACOR", "ESC",
-      "OCUP", "CODMUNRES"
+    "CAUSABAS", "CODMUNOCOR", "DTOBITO", "IDADE", "SEXO", "RACACOR", "ESC",
+    "OCUP", "CODMUNRES"
   )
 )
 
