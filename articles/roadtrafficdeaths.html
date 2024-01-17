@@ -109,7 +109,7 @@ package as well.</p>
 </h2>
 <p>In this example, we will use the <code>rtdeaths</code> dataset to
 extract the annual quantity of road traffic deaths in Brazil, between
-1996 and 2021.</p>
+1996 and 2022.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">year_deaths</span> <span class="op">&lt;-</span> <span class="va">rtdeaths</span><span class="op">[</span>, <span class="va">.N</span>, by <span class="op">=</span> <span class="va">ano_ocorrencia</span><span class="op">]</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">ano_ocorrencia</span><span class="op">)</span><span class="op">]</span></span>
