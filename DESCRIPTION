@@ -1,6 +1,6 @@
 Package: roadtrafficdeaths
 Title: Road Traffic Deaths Data from Brazil
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: 
     c(person(
         given = c("Pedro", "Augusto", "Borges"), 
