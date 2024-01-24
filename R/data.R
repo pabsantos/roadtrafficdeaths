@@ -1,7 +1,7 @@
 #' Brazilian road traffic deaths data
 #'
 #' Death certificates from road traffic crashes. Data from the Brazilian
-#' Ministry of Health, between 1996 and 2021. All variables are encoded in
+#' Ministry of Health, between 1996 and 2022. All variables are encoded in
 #' Brazilian Portuguese.
 #'
 #' @format ## `rtdeaths` dataset
