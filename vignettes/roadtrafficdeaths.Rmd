@@ -28,7 +28,6 @@ Next, the libraries that will be used in this vignette are loaded. This package 
 
 ```{r setup}
 library(roadtrafficdeaths)
-library(data.table)
 ```
 
 ## Usage example
@@ -37,16 +36,9 @@ In this example, we will use the `rtdeaths` dataset to extract the annual quanti
 
 ```{r example, fig.width=6, fig.height=4}
 
-year_deaths <- rtdeaths[, .N, by = ano_ocorrencia][!is.na(ano_ocorrencia)]
+year_deaths <- table(rtdeaths$ano_ocorrencia)
 
-plot(
-  year_deaths$ano_ocorrencia,
-  year_deaths$N,
-  xlab = "Year",
-  ylab = "Road traffic deaths",
-  type = "b"
-)
-
+plot(year_deaths, type = "l")
 ```
 
 

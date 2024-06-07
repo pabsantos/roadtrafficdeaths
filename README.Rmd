@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 The goal of `roadtrafficdeaths` is to provide a dataset of death certificates from road traffic crashes that happened in Brazil, from the Brazilian Ministry of Health.
 
-The dataset is provided in the `data.table` format. To check each variable, use `?rtdeaths`.
+The dataset is provided in the `data.frame` format. To check each variable, use `?rtdeaths`.
 
 ## Installation
 

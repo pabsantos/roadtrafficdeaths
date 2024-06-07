@@ -1,3 +1,7 @@
+# roadtrafficdeaths 0.4.0
+
+* Add new variables to the dataset: `cid`, `cod_modal_outro`, and `modal_outro` (#11, #12)
+
 # roadtrafficdeaths 0.3.1
 
 * Fix documentation
