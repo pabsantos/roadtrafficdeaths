@@ -194,12 +194,11 @@ city_list <- subset(
 
 ## Join datasets
 
-datasus_road[city_list, on = .(cod_municipio_ocor = cod_municipio), roll = TRUE]
 
 rtdeaths <- datasus_road |>
-  left_join(city_list, by = c("cod_municipio_ocor" = "cod_municipio")) |>
-  rename(nome_municipio_ocor = nome_municipio, nome_uf_ocor = nome_uf) |>
-  left_join(city_list, by = c("cod_municipio_res" = "cod_municipio")) |>
-  rename(nome_municipio_res = nome_municipio, nome_uf_res = nome_uf)
+  dplyr::left_join(city_list, by = c("cod_municipio_ocor" = "cod_municipio")) |>
+  dplyr::rename(nome_municipio_ocor = nome_municipio, nome_uf_ocor = nome_uf) |>
+  dplyr::left_join(city_list, by = c("cod_municipio_res" = "cod_municipio")) |>
+  dplyr::rename(nome_municipio_res = nome_municipio, nome_uf_res = nome_uf)
 
 usethis::use_data(rtdeaths, overwrite = TRUE)

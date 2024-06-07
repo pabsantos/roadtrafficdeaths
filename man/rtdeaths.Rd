@@ -7,10 +7,13 @@
 \format{
 \subsection{\code{rtdeaths} dataset}{
 
-A \code{data.table} with 970,863 rows and 18 columns:
+A \code{data.frame} with 970,863 rows and 18 columns:
 \describe{
-\item{\code{cod_modal}}{ICD-10 code of main cause of death}
+\item{\code{cid}}{ICD-10 code of main cause of death}
+\item{\code{cod_modal_vitima}}{Code that identifies type of transport}
 \item{\code{modal_vitima}}{Mode of transport of the victim during the road crash}
+\item{\code{cod_modal_outro}}{Code that identifies third-party envolvement on the crash}
+\item{\code{modal_outro}}{Identifies third-party envolvement on the road crash}
 \item{\code{data_ocorrencia}}{Date of death in ISO 8601 format}
 \item{\code{ano_ocorrencia}}{Year of death}
 \item{\code{idade_vitima}}{Age in years of the victim}
