@@ -20,6 +20,8 @@
 #'   \item{\code{escolaridade_vitima}}{Education of the victim}
 #'   \item{\code{raca_vitima}}{Race of the victim}
 #'   \item{\code{ocup_cbo_vitima}}{Ocupation of the victim, based on the CBO code}
+#'   \item{\code{estado_civil_vitima}}{Marital status of the victim}
+#'   \item{\code{local_ocor}}{Place of death of the victim}
 #'   \item{\code{cod_municipio_ocor}}{City of death occurrence, based on IBGE code}
 #'   \item{\code{nome_regiao_ocor}}{Brazilian region where the death occurred}
 #'   \item{\code{cod_municipio_res}}{City of residence of the victim, based on IBGE code}
