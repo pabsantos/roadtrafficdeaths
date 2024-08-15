@@ -11,7 +11,7 @@ datasus_doext <- fetch_datasus(
   information_system = "SIM-DOEXT",
   vars = c(
     "CAUSABAS", "CODMUNOCOR", "DTOBITO", "IDADE", "SEXO", "RACACOR", "ESC",
-    "OCUP", "CODMUNRES"
+    "OCUP", "CODMUNRES", "LOCOCOR", "ESTCIV"
   )
 )
 
@@ -54,6 +54,16 @@ escolaridade_vitima_df <- data.frame(
 regiao_df <- data.frame(
   cod_regiao = as.character(seq(1, 5, 1)),
   regiao = c("Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste")
+)
+
+lococor_df <- data.frame(
+  cod_lococor = as.character(seq(1, 5, 1)),
+  local_ocor = c("hospital", "saude", "domicilio", "via", "outros")
+)
+
+estciv_df <- data.frame(
+  cod_estciv = as.character(seq(1, 5, 1)),
+  estado_civil_vitima = c("solteiro", "casado", "viuvo", "separado", "uniao")
 )
 
 ## Main table
@@ -175,12 +185,28 @@ datasus_road$regiao <- NULL
 
 datasus_road$ocup_cbo_vitima <- as.character(datasus_road$OCUP)
 
+datasus_road <- merge(
+  x = datasus_road,
+  y = lococor_df,
+  by.x = "LOCOCOR",
+  by.y = "cod_lococor",
+  all.x = TRUE
+)
+
+datasus_road <- merge(
+  x = datasus_road,
+  y = estciv_df,
+  by.x = "ESTCIV",
+  by.y = "cod_estciv",
+  all.x = TRUE
+)
+
 datasus_road <- subset(datasus_road, select = c(
   cid, cod_modal_vitima, modal_vitima, cod_modal_outro, modal_outro,
   data_ocorrencia, ano_ocorrencia, idade_vitima,
   faixa_etaria_vitima, sexo_vitima, escolaridade_vitima, raca_vitima,
-  ocup_cbo_vitima, cod_municipio_ocor, nome_regiao_ocor, cod_municipio_res,
-  nome_regiao_res
+  ocup_cbo_vitima, estado_civil_vitima, local_ocor, cod_municipio_ocor, 
+  nome_regiao_ocor, cod_municipio_res, nome_regiao_res
 ))
 
 city_list$cod_municipio <- substr(
