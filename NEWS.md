@@ -1,5 +1,7 @@
 # roadtrafficdeaths 0.5.0
 
+* Add new variables to the dataset: `estado_civil_vitima` and `local_ocor` ([#15](https://github.com/pabsantos/roadtrafficdeaths/issues/15))
+
 # roadtrafficdeaths 0.4.0
 
 * Add new variables to the dataset: `cid`, `cod_modal_outro`, and `modal_outro` (#11, #12)
