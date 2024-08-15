@@ -1,33 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://pabsantos.github.io/roadtrafficdeaths/404.html</loc>
-  </url>
-  <url>
-    <loc>https://pabsantos.github.io/roadtrafficdeaths/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://pabsantos.github.io/roadtrafficdeaths/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://pabsantos.github.io/roadtrafficdeaths/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://pabsantos.github.io/roadtrafficdeaths/articles/roadtrafficdeaths.html</loc>
-  </url>
-  <url>
-    <loc>https://pabsantos.github.io/roadtrafficdeaths/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://pabsantos.github.io/roadtrafficdeaths/index.html</loc>
-  </url>
-  <url>
-    <loc>https://pabsantos.github.io/roadtrafficdeaths/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://pabsantos.github.io/roadtrafficdeaths/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://pabsantos.github.io/roadtrafficdeaths/reference/rtdeaths.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://pabsantos.github.io/roadtrafficdeaths/404.html</loc></url>
+<url><loc>https://pabsantos.github.io/roadtrafficdeaths/LICENSE-text.html</loc></url>
+<url><loc>https://pabsantos.github.io/roadtrafficdeaths/LICENSE.html</loc></url>
+<url><loc>https://pabsantos.github.io/roadtrafficdeaths/articles/index.html</loc></url>
+<url><loc>https://pabsantos.github.io/roadtrafficdeaths/articles/roadtrafficdeaths.html</loc></url>
+<url><loc>https://pabsantos.github.io/roadtrafficdeaths/authors.html</loc></url>
+<url><loc>https://pabsantos.github.io/roadtrafficdeaths/index.html</loc></url>
+<url><loc>https://pabsantos.github.io/roadtrafficdeaths/news/index.html</loc></url>
+<url><loc>https://pabsantos.github.io/roadtrafficdeaths/reference/index.html</loc></url>
+<url><loc>https://pabsantos.github.io/roadtrafficdeaths/reference/rtdeaths.html</loc></url>
 </urlset>
+
