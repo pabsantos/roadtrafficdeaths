@@ -7,7 +7,7 @@
 \format{
 \subsection{\code{rtdeaths} dataset}{
 
-A \code{data.frame} with 970,863 rows and 18 columns:
+A \code{data.frame} with 1,005,743 rows and 23 columns:
 \describe{
 \item{\code{cid}}{ICD-10 code of main cause of death}
 \item{\code{cod_modal_vitima}}{Code that identifies type of transport}
@@ -43,7 +43,7 @@ rtdeaths
 }
 \description{
 Death certificates from road traffic crashes. Data from the Brazilian
-Ministry of Health, between 1996 and 2022. All variables are encoded in
+Ministry of Health, between 1996 and 2023. All variables are encoded in
 Brazilian Portuguese.
 }
 \keyword{datasets}

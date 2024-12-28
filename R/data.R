@@ -5,7 +5,7 @@
 #' Brazilian Portuguese.
 #'
 #' @format ## `rtdeaths` dataset
-#' A `data.frame` with 970,863 rows and 18 columns:
+#' A `data.frame` with 1,005,743 rows and 23 columns:
 #' \describe{
 #'   \item{\code{cid}}{ICD-10 code of main cause of death}
 #'   \item{\code{cod_modal_vitima}}{Code that identifies type of transport}
