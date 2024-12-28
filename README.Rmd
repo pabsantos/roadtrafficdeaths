@@ -52,7 +52,7 @@ The authors of this package would like to thank the authors of [`microdatasus`](
 
 ## Citation
 
-If you use this package, please cite as follow:
+If you use this package, please cite as follow
 
 ```{r}
 citation("roadtrafficdeaths")
