@@ -7,7 +7,7 @@ library(readODS)
 
 datasus_doext <- fetch_datasus(
   year_start = 1996,
-  year_end = 2022,
+  year_end = 2023,
   information_system = "SIM-DOEXT",
   vars = c(
     "CAUSABAS", "CODMUNOCOR", "DTOBITO", "IDADE", "SEXO", "RACACOR", "ESC",
@@ -205,7 +205,7 @@ datasus_road <- subset(datasus_road, select = c(
   cid, cod_modal_vitima, modal_vitima, cod_modal_outro, modal_outro,
   data_ocorrencia, ano_ocorrencia, idade_vitima,
   faixa_etaria_vitima, sexo_vitima, escolaridade_vitima, raca_vitima,
-  ocup_cbo_vitima, estado_civil_vitima, local_ocor, cod_municipio_ocor, 
+  ocup_cbo_vitima, estado_civil_vitima, local_ocor, cod_municipio_ocor,
   nome_regiao_ocor, cod_municipio_res, nome_regiao_res
 ))
 
