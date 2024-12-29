@@ -8,8 +8,8 @@
 <title>Road Traffic Deaths Data from Brazil • roadtrafficdeaths</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Road Traffic Deaths Data from Brazil">
 <meta name="description" content="This package contains one dataset of death certificates from road traffic crashes that happened in Brazil. This data is provided by the Brazilian Ministry of Health, and includes all certificated between 1996 and 2022.">
 <meta property="og:description" content="This package contains one dataset of death certificates from road traffic crashes that happened in Brazil. This data is provided by the Brazilian Ministry of Health, and includes all certificated between 1996 and 2022.">
@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="index.html">roadtrafficdeaths</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,8 +63,8 @@
 </h2>
 <p>You can install the current version of <code>roadtrafficdeaths</code> from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"pabsantos/roadtrafficdeaths"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"pabsantos/roadtrafficdeaths"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
@@ -74,28 +74,30 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pabsantos.github.io/roadtrafficdeaths/">roadtrafficdeaths</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">rtdeaths</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 'data.frame':    970862 obs. of  21 variables:</span></span>
-<span><span class="co">#&gt;  $ cid                : chr  "V093" "V893" "V499" "V280" ...</span></span>
-<span><span class="co">#&gt;  $ cod_modal_vitima   : chr  "V0" "V8" "V4" "V2" ...</span></span>
-<span><span class="co">#&gt;  $ modal_vitima       : chr  "Pedestre" "Outros" "Automóvel" "Motocicleta" ...</span></span>
-<span><span class="co">#&gt;  $ cod_modal_outro    : chr  "9" "9" "9" "8" ...</span></span>
-<span><span class="co">#&gt;  $ modal_outro        : chr  "Não especificado" "Não especificado" "Não especificado" "Sem colisão" ...</span></span>
-<span><span class="co">#&gt;  $ data_ocorrencia    : Date, format: "2001-02-11" "2006-09-30" ...</span></span>
-<span><span class="co">#&gt;  $ ano_ocorrencia     : num  2001 2006 2018 2020 2012 ...</span></span>
-<span><span class="co">#&gt;  $ idade_vitima       : num  9 33 33 40 84 6 66 47 0 36 ...</span></span>
-<span><span class="co">#&gt;  $ faixa_etaria_vitima: Factor w/ 17 levels "0 a 4 anos","5 a 9 anos",..: 2 7 7 9 17 2 14 10 1 8 ...</span></span>
-<span><span class="co">#&gt;  $ sexo_vitima        : chr  "Masculino" "Masculino" "Feminino" "Masculino" ...</span></span>
-<span><span class="co">#&gt;  $ escolaridade_vitima: chr  "de 1 a 3 anos" "de 8 a 11 anos" "de 8 a 11 anos" "de 1 a 3 anos" ...</span></span>
-<span><span class="co">#&gt;  $ raca_vitima        : chr  "Parda" "Parda" "Parda" "Parda" ...</span></span>
-<span><span class="co">#&gt;  $ ocup_cbo_vitima    : chr  "00600" "313305" "524305" NA ...</span></span>
-<span><span class="co">#&gt;  $ cod_municipio_ocor : chr  "150618" "150230" "150420" "150270" ...</span></span>
-<span><span class="co">#&gt;  $ nome_regiao_ocor   : chr  "Norte" "Norte" "Norte" "Norte" ...</span></span>
-<span><span class="co">#&gt;  $ cod_municipio_res  : chr  "150618" "150230" "150420" "150270" ...</span></span>
-<span><span class="co">#&gt;  $ nome_regiao_res    : chr  "Norte" "Norte" "Norte" "Norte" ...</span></span>
-<span><span class="co">#&gt;  $ nome_uf_ocor       : chr  "Pará" "Pará" "Pará" "Pará" ...</span></span>
-<span><span class="co">#&gt;  $ nome_municipio_ocor: chr  "Rondon do Pará" "Capitão Poço" "Marabá" "Conceição do Araguaia" ...</span></span>
-<span><span class="co">#&gt;  $ nome_uf_res        : chr  "Pará" "Pará" "Pará" "Pará" ...</span></span>
-<span><span class="co">#&gt;  $ nome_municipio_res : chr  "Rondon do Pará" "Capitão Poço" "Marabá" "Conceição do Araguaia" ...</span></span></code></pre></div>
+<span><span class="co">#&gt; 'data.frame':    1005743 obs. of  23 variables:</span></span>
+<span><span class="co">#&gt;  $ cid                : chr  "V789" "V099" "V234" "V284" ...</span></span>
+<span><span class="co">#&gt;  $ cod_modal_vitima   : chr  "V7" "V0" "V2" "V2" ...</span></span>
+<span><span class="co">#&gt;  $ modal_vitima       : chr  "Ônibus" "Pedestre" "Motocicleta" "Motocicleta" ...</span></span>
+<span><span class="co">#&gt;  $ cod_modal_outro    : chr  "8" "9" "3" "8" ...</span></span>
+<span><span class="co">#&gt;  $ modal_outro        : chr  "Sem colisão" "Não especificado" "Automóvel" "Sem colisão" ...</span></span>
+<span><span class="co">#&gt;  $ data_ocorrencia    : Date, format: "1999-02-22" "1999-03-28" ...</span></span>
+<span><span class="co">#&gt;  $ ano_ocorrencia     : num  1999 1999 1999 2014 2018 ...</span></span>
+<span><span class="co">#&gt;  $ idade_vitima       : num  33 58 28 25 24 30 20 23 49 24 ...</span></span>
+<span><span class="co">#&gt;  $ faixa_etaria_vitima: Factor w/ 17 levels "0 a 4 anos","5 a 9 anos",..: 7 12 6 6 5 7 5 5 10 5 ...</span></span>
+<span><span class="co">#&gt;  $ sexo_vitima        : chr  "Masculino" "Feminino" "Masculino" "Masculino" ...</span></span>
+<span><span class="co">#&gt;  $ escolaridade_vitima: chr  NA NA NA "de 1 a 3 anos" ...</span></span>
+<span><span class="co">#&gt;  $ raca_vitima        : chr  "Parda" "Preta" "Parda" "Parda" ...</span></span>
+<span><span class="co">#&gt;  $ ocup_cbo_vitima    : chr  "00034" "00612" "00004" "622020" ...</span></span>
+<span><span class="co">#&gt;  $ estado_civil_vitima: chr  NA NA NA "solteiro" ...</span></span>
+<span><span class="co">#&gt;  $ local_ocor         : chr  "saude" "hospital" "saude" "via" ...</span></span>
+<span><span class="co">#&gt;  $ cod_municipio_ocor : chr  "270630" "270030" "270750" "280240" ...</span></span>
+<span><span class="co">#&gt;  $ nome_regiao_ocor   : chr  "Nordeste" "Nordeste" "Nordeste" "Nordeste" ...</span></span>
+<span><span class="co">#&gt;  $ cod_municipio_res  : chr  "270760" "270260" "270030" "280240" ...</span></span>
+<span><span class="co">#&gt;  $ nome_regiao_res    : chr  "Nordeste" "Nordeste" "Nordeste" "Nordeste" ...</span></span>
+<span><span class="co">#&gt;  $ nome_uf_ocor       : chr  "Alagoas" "Alagoas" "Alagoas" "Sergipe" ...</span></span>
+<span><span class="co">#&gt;  $ nome_municipio_ocor: chr  "Palmeira dos Índios" "Arapiraca" "Porto Real do Colégio" "Gararu" ...</span></span>
+<span><span class="co">#&gt;  $ nome_uf_res        : chr  "Alagoas" "Alagoas" "Alagoas" "Sergipe" ...</span></span>
+<span><span class="co">#&gt;  $ nome_municipio_res : chr  "Quebrangulo" "Feira Grande" "Arapiraca" "Gararu" ...</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="credits">Credits<a class="anchor" aria-label="anchor" href="#credits"></a>
@@ -114,7 +116,7 @@
 <span><span class="co">#&gt; To cite package 'roadtrafficdeaths' in publications use:</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Santos PAB, Saraiva JPM (2023). _roadtrafficdeaths: Road Traffic</span></span>
-<span><span class="co">#&gt;   Deaths Data from Brazil_. R package version 0.3.1,</span></span>
+<span><span class="co">#&gt;   Deaths Data from Brazil_. R package version 0.6.0,</span></span>
 <span><span class="co">#&gt;   https://github.com/pabsantos/roadtrafficdeaths,</span></span>
 <span><span class="co">#&gt;   &lt;https://pabsantos.github.io/roadtrafficdeaths/&gt;.</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -124,7 +126,7 @@
 <span><span class="co">#&gt;     title = {roadtrafficdeaths: Road Traffic Deaths Data from Brazil},</span></span>
 <span><span class="co">#&gt;     author = {Pedro Augusto Borges Santos and João Pedro Melani Saraiva},</span></span>
 <span><span class="co">#&gt;     year = {2023},</span></span>
-<span><span class="co">#&gt;     note = {R package version 0.3.1, https://github.com/pabsantos/roadtrafficdeaths},</span></span>
+<span><span class="co">#&gt;     note = {R package version 0.6.0, https://github.com/pabsantos/roadtrafficdeaths},</span></span>
 <span><span class="co">#&gt;     url = {https://pabsantos.github.io/roadtrafficdeaths/},</span></span>
 <span><span class="co">#&gt;   }</span></span></code></pre></div>
 </div>
@@ -179,7 +181,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>

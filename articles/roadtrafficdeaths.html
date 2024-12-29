@@ -8,8 +8,8 @@
 <title>Getting Started • roadtrafficdeaths</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Getting Started">
 </head>
 <body>
@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">roadtrafficdeaths</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Getting Started</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/pabsantos/roadtrafficdeaths/blob/v0.5.0/vignettes/roadtrafficdeaths.Rmd" class="external-link"><code>vignettes/roadtrafficdeaths.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/pabsantos/roadtrafficdeaths/blob/main/vignettes/roadtrafficdeaths.Rmd" class="external-link"><code>vignettes/roadtrafficdeaths.Rmd</code></a></small>
       <div class="d-none name"><code>roadtrafficdeaths.Rmd</code></div>
     </div>
 
@@ -62,19 +62,18 @@
 <p>The <code>roadtrafficdeaths</code> package contains one dataset of
 death certificates from road traffic crashes that happened in Brazil.
 This data is provided by the Brazilian Ministry of Health, and includes
-all certificated between 1996 and 2021.</p>
+all certificated between 1996 and 2023.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>The current version of <code>roadtrafficdeaths</code> can be
 installed from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"pabsantos/roadtrafficdeaths"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"pabsantos/roadtrafficdeaths"</span><span class="op">)</span></span></code></pre></div>
 <p>Next, the libraries that will be used in this vignette are loaded.
-This package loads an <code>data.table</code> object called
-<code>rtdeaths</code>, so it is recommended to install and load the <a href="https://cran.r-project.org/web/packages/data.table/index.html" class="external-link"><code>data.table</code></a>
-package as well.</p>
+This package loads an <code>data.frame</code> object called
+<code>rtdeaths</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pabsantos.github.io/roadtrafficdeaths/">roadtrafficdeaths</a></span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -85,8 +84,7 @@ package as well.</p>
 extract the annual quantity of road traffic deaths in Brazil, between
 1996 and 2022.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="va">year_deaths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">rtdeaths</span><span class="op">$</span><span class="va">ano_ocorrencia</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">year_deaths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">rtdeaths</span><span class="op">$</span><span class="va">ano_ocorrencia</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">year_deaths</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="roadtrafficdeaths_files/figure-html/example-1.png" width="576"></p>
@@ -102,7 +100,7 @@ extract the annual quantity of road traffic deaths in Brazil, between
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>
