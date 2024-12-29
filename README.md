@@ -73,14 +73,14 @@ The authors of this package would like to thank the authors of
 
 ## Citation
 
-If you use this package, please cite as follow
+If you use this package, please cite as follow:
 
 ``` r
 citation("roadtrafficdeaths")
 #> To cite package 'roadtrafficdeaths' in publications use:
 #> 
 #>   Santos PAB, Saraiva JPM (2023). _roadtrafficdeaths: Road Traffic
-#>   Deaths Data from Brazil_. R package version 0.5.0,
+#>   Deaths Data from Brazil_. R package version 0.6.0,
 #>   https://github.com/pabsantos/roadtrafficdeaths,
 #>   <https://pabsantos.github.io/roadtrafficdeaths/>.
 #> 
@@ -90,7 +90,7 @@ citation("roadtrafficdeaths")
 #>     title = {roadtrafficdeaths: Road Traffic Deaths Data from Brazil},
 #>     author = {Pedro Augusto Borges Santos and João Pedro Melani Saraiva},
 #>     year = {2023},
-#>     note = {R package version 0.5.0, https://github.com/pabsantos/roadtrafficdeaths},
+#>     note = {R package version 0.6.0, https://github.com/pabsantos/roadtrafficdeaths},
 #>     url = {https://pabsantos.github.io/roadtrafficdeaths/},
 #>   }
 ```

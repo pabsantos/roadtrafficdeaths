@@ -1,5 +1,9 @@
 # roadtrafficdeaths 0.6.0
 
+* Add 2023 data ([#17](https://github.com/pabsantos/roadtrafficdeaths/issues/17))
+
+* Update getting started vignette ([#14](https://github.com/pabsantos/roadtrafficdeaths/issues/14))
+
 # roadtrafficdeaths 0.5.0
 
 * Add new variables to the dataset: `estado_civil_vitima` and `local_ocor` ([#15](https://github.com/pabsantos/roadtrafficdeaths/issues/15))
