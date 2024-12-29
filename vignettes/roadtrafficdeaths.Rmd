@@ -14,17 +14,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-The `roadtrafficdeaths` package contains one dataset of death certificates from road traffic crashes that happened in Brazil. This data is provided by the Brazilian Ministry of Health, and includes all certificated between 1996 and 2021.
+The `roadtrafficdeaths` package contains one dataset of death certificates from road traffic crashes that happened in Brazil. This data is provided by the Brazilian Ministry of Health, and includes all certificated between 1996 and 2023.
 
 ## Installation
 
 The current version of `roadtrafficdeaths` can be installed from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("pabsantos/roadtrafficdeaths")
+# install.packages("pak")
+pak::pak("pabsantos/roadtrafficdeaths")
 ```
-Next, the libraries that will be used in this vignette are loaded. This package loads an `data.table` object called `rtdeaths`, so it is recommended to install and load the [`data.table`](https://cran.r-project.org/web/packages/data.table/index.html) package as well.
+Next, the libraries that will be used in this vignette are loaded. This package loads an `data.frame` object called `rtdeaths`.
 
 ```{r setup}
 library(roadtrafficdeaths)
@@ -35,7 +35,6 @@ library(roadtrafficdeaths)
 In this example, we will use the `rtdeaths` dataset to extract the annual quantity of road traffic deaths in Brazil, between 1996 and 2022.
 
 ```{r example, fig.width=6, fig.height=4}
-
 year_deaths <- table(rtdeaths$ano_ocorrencia)
 
 plot(year_deaths, type = "l")

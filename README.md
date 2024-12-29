@@ -23,8 +23,8 @@ You can install the current version of `roadtrafficdeaths` from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("pabsantos/roadtrafficdeaths")
+# install.packages("pak")
+pak::pak("pabsantos/roadtrafficdeaths")
 ```
 
 ## Example
