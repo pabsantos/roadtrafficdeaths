@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   roadtrafficdeaths: roadtrafficdeaths.html
-last_built: 2025-12-27T23:45Z
+last_built: 2025-12-27T23:48Z
 urls:
   reference: https://pabsantos.github.io/roadtrafficdeaths/reference
   article: https://pabsantos.github.io/roadtrafficdeaths/articles

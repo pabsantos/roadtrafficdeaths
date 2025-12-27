@@ -12,7 +12,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/pabsantos/roadtrafficdeaths/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/pabsantos/roadtrafficdeaths/blob/v0.7.0/DESCRIPTION)
 
 Santos PAB, Saraiva JPM (2025). *roadtrafficdeaths: Road Traffic Deaths
 Data from Brazil*. R package version 0.7.0,
