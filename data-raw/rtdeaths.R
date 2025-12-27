@@ -7,7 +7,7 @@ library(readODS)
 
 datasus_doext <- fetch_datasus(
   year_start = 1996,
-  year_end = 2023,
+  year_end = 2024,
   information_system = "SIM-DOEXT",
   vars = c(
     "CAUSABAS", "CODMUNOCOR", "DTOBITO", "IDADE", "SEXO", "RACACOR", "ESC",
@@ -213,6 +213,10 @@ city_list$cod_municipio <- substr(
   as.character(city_list$codigo_municipio_completo), 1, 6
 )
 
+city_list$cod_uf <- substr(city_list$cod_municipio, 1, 2)
+
+uf_list <- unique(city_list[, c("cod_uf", "nome_uf")])
+
 city_list <- subset(
   city_list,
   select = c(cod_municipio, nome_uf, nome_municipio)
@@ -220,11 +224,27 @@ city_list <- subset(
 
 ## Join datasets
 
-
 rtdeaths <- datasus_road |>
   dplyr::left_join(city_list, by = c("cod_municipio_ocor" = "cod_municipio")) |>
   dplyr::rename(nome_municipio_ocor = nome_municipio, nome_uf_ocor = nome_uf) |>
   dplyr::left_join(city_list, by = c("cod_municipio_res" = "cod_municipio")) |>
   dplyr::rename(nome_municipio_res = nome_municipio, nome_uf_res = nome_uf)
+
+rtdeaths$cod_uf_ocor <- substr(rtdeaths$cod_municipio_ocor, 1, 2)
+rtdeaths$cod_uf_res <- substr(rtdeaths$cod_municipio_res, 1, 2)
+
+rtdeaths <- rtdeaths |>
+  dplyr::left_join(uf_list, by = c("cod_uf_ocor" = "cod_uf")) |>
+  dplyr::mutate(nome_uf_ocor = dplyr::coalesce(nome_uf_ocor, nome_uf)) |>
+  dplyr::select(-nome_uf) |>
+  dplyr::left_join(uf_list, by = c("cod_uf_res" = "cod_uf")) |>
+  dplyr::mutate(nome_uf_res = dplyr::coalesce(nome_uf_res, nome_uf)) |>
+  dplyr::select(-nome_uf, -cod_uf_ocor, -cod_uf_res)
+
+for (col in names(rtdeaths)) {
+  if (is.character(rtdeaths[[col]])) {
+    rtdeaths[[col]] <- enc2utf8(as.character(rtdeaths[[col]]))
+  }
+}
 
 usethis::use_data(rtdeaths, overwrite = TRUE)

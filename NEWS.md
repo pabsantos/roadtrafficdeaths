@@ -1,3 +1,7 @@
+# roadtrafficdeaths 0.7.0
+
+* Add 2024 data
+
 # roadtrafficdeaths 0.6.0
 
 * Add 2023 data ([#17](https://github.com/pabsantos/roadtrafficdeaths/issues/17))
