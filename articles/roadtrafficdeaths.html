@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">roadtrafficdeaths</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Getting Started</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/pabsantos/roadtrafficdeaths/blob/v0.6.0/vignettes/roadtrafficdeaths.Rmd" class="external-link"><code>vignettes/roadtrafficdeaths.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/pabsantos/roadtrafficdeaths/blob/main/vignettes/roadtrafficdeaths.Rmd" class="external-link"><code>vignettes/roadtrafficdeaths.Rmd</code></a></small>
       <div class="d-none name"><code>roadtrafficdeaths.Rmd</code></div>
     </div>
 
@@ -62,7 +62,7 @@
 <p>The <code>roadtrafficdeaths</code> package contains one dataset of
 death certificates from road traffic crashes that happened in Brazil.
 This data is provided by the Brazilian Ministry of Health, and includes
-all certificated between 1996 and 2023.</p>
+all certificated between 1996 and 2024.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -82,12 +82,12 @@ This package loads an <code>data.frame</code> object called
 </h2>
 <p>In this example, we will use the <code>rtdeaths</code> dataset to
 extract the annual quantity of road traffic deaths in Brazil, between
-1996 and 2022.</p>
+1996 and 2024.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">year_deaths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">rtdeaths</span><span class="op">$</span><span class="va">ano_ocorrencia</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">year_deaths</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="roadtrafficdeaths_files/figure-html/example-1.png" width="576"></p>
+<p><img src="roadtrafficdeaths_files/figure-html/example-1.png" class="r-plt" alt="" width="576"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
@@ -100,7 +100,7 @@ extract the annual quantity of road traffic deaths in Brazil, between
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
